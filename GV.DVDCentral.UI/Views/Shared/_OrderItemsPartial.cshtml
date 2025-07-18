@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GV.DVDCentral.BL.Models.OrderItem>
+
+
+<h4>Order Items</h4>
+<table class="table" id="myData">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    <img class="imagepropsmall"
+                         alt="@item.MovieTitle"
+                         id="programimage"
+                         onclick="on('/images/@item.ImagePath')"
+                         src="~/images/@item.ImagePath" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+@*                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+ *@             
+                   <a asp-controller="OrderItem" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript" class="init">
+    $.noConflict();
+    jQuery(document).ready(function ($) {
+        $('#myData').DataTable({
+            "lengthMenu": [[5, 10, 25, 30, -1], [5, 10, 25, 30, "All"]]
+        });
+    });
+</script>

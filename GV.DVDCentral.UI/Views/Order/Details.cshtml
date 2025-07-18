@@ -1,0 +1,78 @@
+﻿@model GV.DVDCentral.BL.Models.Order
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h2>Order Details</h2>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Customer Full Name")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerFullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShipDate)
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayName("SubTotal")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubTotalOrder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Tax")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxOrder)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserFullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Total")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalOrder)
+        </dd>
+    </dl>
+
+
+</div>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div>
+    <partial name="_OrderItemsPartial" model="Model.OrderItems" />
+
+</div>

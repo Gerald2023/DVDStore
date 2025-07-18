@@ -1,0 +1,102 @@
+﻿@model GV.DVDCentral.BL.Models.ShoppingCart
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Shopping Cart</h1>
+
+
+<table id="myData" class="table data-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items[0].Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items[0].Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@item.ImagePath"
+                         id="programimage"
+                         alt="@item.Description"
+                         onclick="on('/images/@item.ImagePath')"
+                         class="imagepropsmall" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.ActionLink("Remove", "Remove", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Order Summary</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NumberOfItems)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubTotal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tax)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Total)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.NumberOfItems)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.SubTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Tax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Total)
+                    </td>
+                    <td>
+                        <a asp-action="Checkout" class="btn btn-primary">Checkout</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
