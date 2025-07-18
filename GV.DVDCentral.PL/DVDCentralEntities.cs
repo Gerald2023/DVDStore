@@ -36,8 +36,14 @@ public partial class DVDCentralEntities : DbContext
     public virtual DbSet<tblUser> tblUsers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=GV.DVDCentral.DB;Integrated Security=True");
+    {
+        // Only configure if not already configured (for dependency injection)
+        if (!optionsBuilder.IsConfigured)
+        {
+            // This will only be used if the DbContext is created without options
+            // In production, always use dependency injection with connection string from configuration
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
