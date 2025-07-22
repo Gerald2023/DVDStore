@@ -36,14 +36,16 @@ public partial class DVDCentralEntities : DbContext
     public virtual DbSet<tblUser> tblUsers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        // Only configure if not already configured (for dependency injection)
-        if (!optionsBuilder.IsConfigured)
-        {
-            // This will only be used if the DbContext is created without options
-            // In production, always use dependency injection with connection string from configuration
-        }
-    }
+      => optionsBuilder.UseSqlServer("Server=db23698.public.databaseasp.net; Database=db23698; User Id=db23698; Password=5Es?Fd+6b#2J; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;");
+
+    //{
+    //    // Only configure if not already configured (for dependency injection)
+    //   if (!optionsBuilder.IsConfigured)
+    //    {
+    //        // This will only be used if the DbContext is created without options
+    //        // In production, always use dependency injection with connection string from configuration
+    //    }
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

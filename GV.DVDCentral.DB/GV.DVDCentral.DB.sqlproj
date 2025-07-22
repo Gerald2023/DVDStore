@@ -84,7 +84,6 @@
     <None Include="PostDeploy\DefaultData\OrderItems.sql" />
     <None Include="PostDeploy\DefaultData\Ratings.sql" />
     <None Include="PostDeploy\DefaultData\Users.sql" />
-    <None Include="remote.publish.xml" />
     <None Include="local.publish.xml" />
   </ItemGroup>
   <ItemGroup>

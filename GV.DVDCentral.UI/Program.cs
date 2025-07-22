@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add DbContext with connection string from configuration
-builder.Services.AddDbContext<DVDCentralEntities>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//// Add DbContext with connection string from configuration
+//builder.Services.AddDbContext<DVDCentralEntities>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //add the ability to access http context
 builder.Services.AddHttpContextAccessor();
