@@ -18,7 +18,10 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
+    color: #222;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 
@@ -54,6 +57,7 @@ body {
     padding: 0px;
     border-width: 1px;
     border-style: solid;
+    border:none;
 }
 
 .sidebar {
@@ -62,7 +66,8 @@ body {
     padding-left: 0px;
     padding-right: 0px;
     border-width: 1px;
-    border-style: solid;
+    border: none;
+
 }
 
 .sidebar ul {
@@ -91,8 +96,12 @@ body {
 }
 
 .imagepropmedium {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px 8px 0 0;
 }
 
 .imageproplarge {
@@ -126,4 +135,119 @@ body {
 
 div.dataTables_filter, div.dataTables_lengthm, .dataTables_wrapper {
     padding: 5px;
+}
+
+.hero-section {
+    position: relative;
+    background-image: url('https://scienceonscreen.org/assets/films/_1600x900_crop_top-center_75_none/Fight-Club.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(24, 26, 27, 0.7);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 60px 20px;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 24px #000;
+    animation: fadeInDown 1s;
+}
+.hero-content p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-shadow: 0 2px 8px #000;
+    animation: fadeInUp 1.2s;
+}
+.hero-content .btn-primary {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    padding: 12px 36px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px #0006;
+    transition: background 0.2s, transform 0.2s;
+}
+.hero-content .btn-primary:hover {
+    background: #ff9800;
+    color: #181a1b;
+    transform: scale(1.05);
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.feature-card {
+    background: #23272b;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #0003;
+    color: #fff;
+    margin-bottom: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 24px #0005;
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: #ff9800;
+    margin-bottom: 16px;
+}
+.footer {
+    background: #f8f9fa;
+    color: #888;
+    border-top: 1px solid #ddd;
+}
+
+/* Remove black backgrounds from Movie index cards */
+.card {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: 0 2px 12px #0001;
+    color: #222;
+}
+
+
+
+.feature-card, .feature-card.card {
+    background: #23272b !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 2px 12px #0003;
+}
+
+/* Optionally, make feature cards lighter if you want them to stand out more */
+/*
+.feature-card {
+    background: #f8f9fa;
+    color: #23272b;
+}
+*/
+
+.movie-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px 8px 0 0;
 }
